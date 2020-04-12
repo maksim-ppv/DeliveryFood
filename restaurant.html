@@ -12,14 +12,14 @@
 <body>
     <div class="container">
         <header class="header">
-            <a href="index.html" alt="logo"><img src="./img/logo.svg" alt="Альтернативный текст" class="logo wow fadeInRight"></a>
+            <a href="index.html" alt="logo"><img src="./img/logo.svg" alt="Альтернативный текст" class="logo wow fadeInRight" data-wow-duration="2s"></a>
             <input type="text" class="input input-address" placeholder="Адрес доставки">
             <div class="buttons">
-                <button class="button button-primary wow fadeInLeft">
+                <button class="button button-primary wow fadeInLeft" data-wow-duration="2s">
                     <img src="./img/user.svg" alt="user" class="button__icon">
                     <span class="button__text">Войти</span>
                 </button>
-                <button class="button wow fadeInLeft" id="cart-button">
+                <button class="button wow fadeInLeft" id="cart-button" data-wow-duration="2s">
                     <img src="./img/icon container.svg" alt="shopping-cart" class="button__icon">
                     <span class="button__text">Корзина</span>
                 </button>
@@ -224,7 +224,7 @@
     <footer class="footer">
         <div class="container">
             <div class="footer__block">
-                <img src="./img/logo.svg" alt="logo" class="logo footer__logo">
+                <a href="index.html"><img src="./img/logo.svg" alt="logo" class="logo footer__logo"></a>
                 <nav class="footer__nav">
                     <a href="#" class="footer__link">Ресторанам</a>
                     <a href="#" class="footer__link">Курьерам</a>
@@ -294,8 +294,8 @@
                 </div>
             </div>
             <div class="modal__footer">
-                <span class="footer__pricetag">1250 ₽</span>
-                <div class="footer__buttons">
+                <span class="modal__pricetag">1250 ₽</span>
+                <div class="modal__buttons">
                     <button class="button button-primary">Оформить заказ</button>
                     <button class="button">Отмена</button>
                 </div>

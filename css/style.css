@@ -31,6 +31,11 @@ body {
   margin-bottom: 40px;
 }
 
+.logo {
+  -webkit-transition: 3s;
+  transition: 3s;
+}
+
 .input {
   background-color: #ffffff;
   border: 1px solid #D9D9D9;
@@ -81,6 +86,14 @@ body {
   color: #595959;
   font-size: 16px;
   line-height: 24px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.button:hover {
+  margin: 0 15px;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
 }
 
 .button-primary {
@@ -172,6 +185,14 @@ body {
   -ms-flex-preferred-size: 32%;
       flex-basis: 32%;
   text-decoration: none;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.card:hover {
+  margin: 1% 2% 4% 2%;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .card__image {
@@ -473,7 +494,7 @@ body {
   margin-bottom: 52px;
 }
 
-.footer__buttons {
+.modal__buttons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -482,7 +503,7 @@ body {
           align-items: center;
 }
 
-.footer__pricetag {
+.modal__pricetag {
   background: #262626;
   border-radius: 5px;
   color: #ffffff;
@@ -620,6 +641,9 @@ body {
 }
 
 @media (max-width: 480px) {
+  .input-search {
+    width: 100%;
+  }
   .button__text {
     display: none;
   }
