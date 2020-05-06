@@ -1,35 +1,64 @@
-const cartButton = document.getElementById('cart-button');
-const modal = document.querySelector('.modal');
-const modalClose = document.querySelector('.close');
-const logo = document.querySelectorAll('.logo');
+const cartButton = document.querySelector('#button'),
+      modal = document.querySelector(".modal"),
+      close = document.querySelector(".close"),
+      buttonAuth = document.querySelector('.button-auth'),
+      modalAuth = document.querySelector('.modal-auth'),
+      closeAuth = document.querySelector('.close-auth'),
+      logInForm = document.querySelector('#logInForm'),
+      loginInput = document.querySelector('#login'),
+      userName = document.querySelector('.user-name'),
+      buttonOut = document.querySelector('.button-out');
 
+let login = localStorage.getItem('gloDelivery');
 
-cartButton.addEventListener('click', e => {
-    modal.classList.add('is-open')   
-});
+const toogleModalAuth = () => {
+  modalAuth.classList.toggle('is-open');
+};
+const authorized = () => {
+    const logOut = () => {
+      login = null;
+      localStorage.removeItem('gloDelivery');
+      buttonAuth.style.display = '';
+      userName.style.display = '';
+      buttonOut.style.display = '';
+      buttonOut.removeEventListener('click', logOut)
+      checkAuth();
+    };
+    userName.textContent = login;
 
-modalClose.addEventListener('click', e=> {
-    modal.classList.remove('is-open')
-});
+    buttonAuth.style.display = 'none';
+    userName.style.display = 'inline';
+    buttonOut.style.display = 'block';
 
-
-const animationActive = (i, time, animeActive, animeDeactive) => {
-    i.addEventListener('mouseover', e=>{
-        i.style.animationName = animeActive;
-        i.style.animationDuration = time+'s';
-        if(i.classList.contains('wow')){
-            i.classList.remove('wow', animeDeactive)
-        };
-        setTimeout(() => i.style.animationName='', time*1000-100)
-    });
+    buttonOut.addEventListener('click', logOut)
 };
 
-logo.forEach(i=>{
-    animationActive(i, 1, 'pulse', 'fadeInRight');
-});
-wow = new WOW({
-    mobile: false,
-    offset: 100
+const notAuthorized = () => {
+  
+  const logIn = (event) =>{
+    event.preventDefault();
+    login = loginInput.value;
 
-})
-wow.init();
+    localStorage.setItem('gloDelivery', login);
+
+    toogleModalAuth();
+    buttonAuth.removeEventListener('click', toogleModalAuth);
+    closeAuth.removeEventListener('click', toogleModalAuth);
+    logInForm.removeEventListener('submit', logIn);
+    logInForm.reset();
+    checkAuth();
+  };
+
+  buttonAuth.addEventListener('click', toogleModalAuth);
+  closeAuth.addEventListener('click', toogleModalAuth);
+  logInForm.addEventListener('submit', logIn);
+};
+const checkAuth = () => {
+  if(login){
+    authorized();
+  }else{
+    notAuthorized();
+  }
+};
+
+checkAuth();
