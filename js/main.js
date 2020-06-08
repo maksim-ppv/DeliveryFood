@@ -302,7 +302,7 @@ const init = () => {
   new Swiper('.swiper-container', {
     loop: true,
     autoplay: {
-      delay: 1000
+      delay: 3000
     },
     sliderPerView: 2,
   })
